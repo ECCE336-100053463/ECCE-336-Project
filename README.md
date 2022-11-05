@@ -1,5 +1,4 @@
 # ECCE-336-Project
-# ECCE-336-Project
 ![](RackMultipart20221105-1-oih48u_html_3f8a69f659a1053d.jpg)
 
 **Feasibility Study on the Issue of Remotely Monitoring a Newborn**
