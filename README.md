@@ -9,9 +9,9 @@ Semester: Fall 2022
 
 Section No.: 1
 
-Students Names: Khaled Alhefeiti, Ahmad Mohammad, Saeed Almarri
+Students Names: Khaled Alhefeiti, Ahmad Mohammad, Saeed Almarri, Falah Alfalahi
 
-Student Ids: 100058849, 100053567, 100053463
+Student Ids: 100058849, 100053567, 100053463, 100059123
 
 Instructor: Dr. Davor Svetinovic
 
