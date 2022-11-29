@@ -1,0 +1,13 @@
+@startuml
+title notification feed
+actor Client
+database System
+actor localAuthority
+System->Client: System detects state of child and notifies the client of the state of child
+System-[#Red]>Client: Detect emergency and notifies client
+Client-[#Red]->System: Client doesn't confirm the notification
+System-[#Red]->localAuthority: notify local authority
+System-[#Red]->Client: notify client that the local authority has been notified
+Client-[#Red]>System: Confirm to the system that they recieved the notifications
+System->System: Update information and work normally
+@enduml
