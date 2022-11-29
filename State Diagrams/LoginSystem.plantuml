@@ -1,0 +1,19 @@
+@startuml
+
+title Login System State Diagram
+[*] --> LoginSystem
+LoginSystem :Username\nPassword
+
+
+LoginSystem -> Evaluation
+Evaluation --> True : Login Succesful
+Evaluation --> False
+LoginSystem <-- False : Retry
+RegistrationSytem <- False :Register
+False --> [*]
+note left
+Exit System 
+end note
+True -> AccessApplication
+
+@enduml

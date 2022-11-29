@@ -1,0 +1,21 @@
+@startuml
+
+title Notification System State Diagram
+
+start
+
+:NotificationFeed;
+if(Detected Emergency?) then (yes)
+    :Send Alert;
+    :Contact Parents;
+    :Contact Authority;
+else (no)
+    :Update Feed;
+endif
+stop
+note right
+Exit Notification Feed
+end note
+
+    
+@enduml
