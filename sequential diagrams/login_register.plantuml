@@ -1,0 +1,20 @@
+@startuml
+title Baby monitor Register & Log in
+actor unregisteredClient
+actor registeredClient
+database System
+database Database
+unregisteredClient->System: Enter personal information, email & password
+System->Database: Check if user exists
+Database-->System: user exists
+System-->unregisteredClient: User already exists
+Database->System: User does not exist
+System->Database: Register new user
+System->unregisteredClient: User has been registered
+registeredClient->System: Enter Email & password
+System->Database: Verify Email & password
+Database-->System: Wrong Email or password
+System-->registeredClient: invalid credentials, please try again
+Database->System: User found
+System->registeredClient: Log in successful
+@enduml

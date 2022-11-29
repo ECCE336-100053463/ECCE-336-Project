@@ -1,0 +1,13 @@
+@startuml
+title Access camera feed
+actor Client
+database System
+Client->System: Request camera feed
+System->Client: ask which feed to access live or recorded
+Client-->System: choose recorded feed
+System-->Client: give access to recorded camera feed
+Client->System: choose live feed
+System->Client: give access to live camera feed
+Client->System: Client leaves(log out)
+System->System: Update information and work normally
+@enduml
