@@ -1,0 +1,28 @@
+@startuml
+
+class Camera {
+    Video()
+}
+class Database {
+    Video()
+    Audio()
+    Date()
+}
+class Application{
+    RequestVideo()
+    RequestAudio()
+    DisplayVideo()
+    DisplayAudio()
+}
+class User
+class Microphone {
+    Audio()
+}
+Camera->Database : Transmit video
+Microphone-u-> Database : Transmit audio
+Database -> Application  : Data sent
+Application -> Database : Data request
+Application -> User : Output
+User -> Application : Input
+
+@enduml

@@ -1,0 +1,33 @@
+@startuml
+
+class Application {
+    CameraSystem()
+    NotificationSystem()
+    RegistrationSystem()
+    Database()
+}
+class NotificationSystem{
+    NotifyUser()
+    NotifyAuthorities()
+}
+class RegistrationSystem{
+    RegisterUsername()
+    RegisterPassword()
+    RegisterEmail()
+}
+class CameraSystem{
+    DisplayVideo()
+}
+class AudioSystem {
+    DisplayAudio()
+}
+
+
+Application -d-> NotificationSystem : Refers to
+Application -> RegistrationSystem : Refers to
+Application -l-> CameraSystem : Refers to
+Application -u-> Database : Refers to
+Application -d-> AudioSystem : Refers to
+
+
+@endunml 

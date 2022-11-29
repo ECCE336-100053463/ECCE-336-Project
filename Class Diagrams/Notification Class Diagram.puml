@@ -1,0 +1,34 @@
+@startuml
+
+class User 
+class Monitors {
+}
+class Database{
+
+    Video()
+    Audio()
+    TriggerNotification()
+}
+abstract class Notification
+{
+    SendNotification()
+    
+}
+
+class Application{
+    PingUser()
+    DisplayAudio()
+    DisplayVideo()
+}
+
+User -> Application : Interacts with monitor
+Monitors -u-> Database : Transmits data
+Application -> Database : Store userdata
+Database -> Application : Relay data to user
+Database -u-> Notification : Notification trigger
+Notification -> Application : Transmit notification
+Application -> User : Notifies user
+
+
+
+@enduml

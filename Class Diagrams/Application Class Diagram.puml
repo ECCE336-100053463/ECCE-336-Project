@@ -1,0 +1,48 @@
+@startuml
+
+class Application 
+class Database{
+
+    MonitorSettings()
+    UserSettings()
+    AppSettings()
+    CameraMonitors()
+    MicrophoneMonitors()
+}
+
+
+class User 
+class ViewMainPage {
+ViewMonitorPage()
+ViewSettingsPage()
+
+}
+
+class MonitorPage {
+
+    DisplayCameraMonitors()
+    DisplayMicrophoneMonitors()
+
+}
+class SettingsPage {
+
+    DisplayMonitorSettings()
+    DisplayUserSettings()
+    DisplayAppSettings()
+}
+
+
+User -> Application : Input
+Application -> User : Display
+Application -d-> ViewMainPage : Input
+ViewMainPage -u-> Application : Display Data
+ViewMainPage -d-> MonitorPage : Request Data
+MonitorPage -u-> ViewMainPage : Display Data
+SettingsPage -u-> ViewMainPage: Display Data
+ViewMainPage -d-> SettingsPage: Request Data
+Database -u-> MonitorPage : Transmit Stored Data
+Database -u-> SettingsPage : Transmit Stored Data
+
+
+
+@enduml

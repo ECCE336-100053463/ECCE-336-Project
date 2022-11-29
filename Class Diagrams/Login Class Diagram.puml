@@ -1,0 +1,36 @@
+@startuml
+
+class Application {
+    LoginRequest()
+    RegisterRequest()
+}
+class Register
+{
+    Username()
+    Password()
+    Email()
+
+}
+class Login {
+Username()
+Password()
+}
+
+class Database{
+StoreUsername()
+StorePassword()
+CheckUser()
+CheckPass()
+}
+
+
+
+Login -d-> Database : Sign in user
+Register -d-> Database : Store data
+Database -> Application : Authorize access
+Application -> Register : Register request
+Application -> Login : Login request
+User -u-> Application : Input
+Application -d-> User : Output
+
+@enduml
