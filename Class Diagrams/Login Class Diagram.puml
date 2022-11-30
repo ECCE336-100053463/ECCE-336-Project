@@ -1,35 +1,36 @@
 @startuml
 
 class Application {
-    LoginRequest()
-    RegisterRequest()
+    AccessLoginSystem()
+    AccessRegistrationSystem()
 }
-class Register
+class RegistrationSystem
 {
-    Username()
-    Password()
-    Email()
+    EnterPersonalInfo()
+    EnterUsername()
+    EnterPassword()
+    ValidatePassword()
+    RegisterUser()
 
 }
-class Login {
-Username()
-Password()
+class LoginSystem {
+EnterUsername()
+EnterPassword()
 }
 
 class Database{
-StoreUsername()
-StorePassword()
+StoreUser()
 CheckUser()
 CheckPass()
 }
 
 
 
-Login -d-> Database : Sign in user
-Register -d-> Database : Store data
+LoginSystem -d-> Database : Sign in user
+RegistrationSystem -d-> Database : Store data
 Database -> Application : Authorize access
-Application -> Register : Register request
-Application -> Login : Login request
+Application -> RegistrationSystem : Register request
+Application -> LoginSystem : Login request
 User -u-> Application : Input
 Application -d-> User : Output
 
