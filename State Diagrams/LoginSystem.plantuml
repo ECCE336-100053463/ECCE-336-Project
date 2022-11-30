@@ -2,18 +2,21 @@
 
 title Login System State Diagram
 [*] --> LoginSystem
-LoginSystem :Username\nPassword
+LoginSystem :EnterUsername()\nEnterPassword()
+False:Password Incorrect
+True:Password Correct
+Evaluation:Checking Database
 
 
-LoginSystem -> Evaluation
-Evaluation --> True : Login Succesful
-Evaluation --> False
-LoginSystem <-- False : Retry
-RegistrationSytem <- False :Register
-False --> [*]
+LoginSystem -> Evaluation:CheckUser()
+Evaluation --> True : CheckPassword()
+Evaluation --> False:CheckPassword()
+LoginSystem <-- False : AccessLoginSystem()
+RegistrationSytem <- False :AccessRegistrationSystem()
+False --> [*]:ExitApp()
 note left
 Exit System 
 end note
-True -> AccessApplication
+True -> Application:AccessApp()
 
 @enduml

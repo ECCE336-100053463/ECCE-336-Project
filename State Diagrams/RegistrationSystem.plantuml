@@ -1,17 +1,18 @@
 @startuml
 
 title Registration System State Diagram
-[*] --> PersonalInformation: Register()
-PersonalInformation --> Username
-Username --> Password
+[*] --> PersonalInformation: EnterPersonalInfo()
+PersonalInformation --> Username:EnterUsername()
+Username --> Password:EnterPassword()
 Username: Enter Username
 Password: Enter Password
-Password -> Confirmation
-Confirmation --> LoginSystem : Registration Succesful
-Confirmation --> False
-Confirmation:Enter Password Again
-Password <-- False : Retry
-False --> [*]
+Password -> Validation:EnterPassword()
+Validation --> True : ValidatePassword()
+Validation --> False:ValidatePassword()
+True --> LoginSystem : RegisterUser()
+Validation:Enter Password Again
+Password <-- False : EnterPassword()
+False --> [*]:ExitSystem()
 note left
 Exit System 
 end note
