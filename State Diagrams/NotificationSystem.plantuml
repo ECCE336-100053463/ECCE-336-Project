@@ -5,17 +5,15 @@ title Notification System State Diagram
 start
 
 :NotificationFeed;
-if(Detected Emergency?) then (yes)
-    :Send Alert;
-    :Contact Parents;
-    :Contact Authority;
-else (no)
-    :Update Feed;
+if(Detected Emergency?) then (Yes)
+    :SendAlert();
+    :ContactParents(PhoneNumber);
+    :ContactAuthority(Local_Authority_Num);
+else (No)
+    :UpdateFeed();
 endif
-stop
-note right
-Exit Notification Feed
+stop    
+note left 
+MainMenu() 
 end note
-
-    
 @enduml

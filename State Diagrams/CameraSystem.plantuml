@@ -1,4 +1,13 @@
 @startuml
+title Camera System State Diagram
+[*] --> CameraFeed:AccessCameraFeed()
+CameraFeed --> LiveCameraFeed:AccessLiveFeed()
+CameraFeed --> RecordedCameraFeed:AccessRecordedFeed()
+LiveCameraFeed -> RecordedCameraFeed:RecordFeed()
+LiveCameraFeed --> [*]
+RecordedCameraFeed --> [*]
 
-       
+note left
+MainMenu()
+end note
 @enduml

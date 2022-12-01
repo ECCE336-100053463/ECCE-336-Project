@@ -17,6 +17,6 @@ False --> [*]:ExitApp()
 note left
 Exit System 
 end note
-True -> Application:AccessApp()
+True -> Application:MainMenu()
 
 @enduml

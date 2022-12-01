@@ -1,0 +1,14 @@
+@startuml
+title Application State Diagram
+[*]-->App :AccessApplication()
+state App{
+MainMenu --> CameraSystem:AccessCameraSystem()
+[*] --> RegistrationSystem:AccessRegistrationSystem()
+LoginSystem --> MainMenu: MainMenu()
+[*] --> LoginSystem:AccessLoginSystem()
+MainMenu --> NotificationSystem:AccessNotificationSystem()
+NotificationSystem --> MainMenu :MainMenu()
+CameraSystem --> MainMenu :MainMenu()
+}
+App --> [*]:ExitApp()
+@enduml
