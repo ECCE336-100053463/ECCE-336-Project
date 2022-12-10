@@ -8,10 +8,10 @@ import datetime
 from tkVideoPlayer import TkinterVideo
 System ={}
 
-def Camera():
+def LiveFeed():
     cap = cv2.VideoCapture(0)
 
-    print("To quit the program press (q)")
+    messagebox.showinfo("Information","To Quit the Live Feed Press Q")
     face_cascade = cv2.CascadeClassifier(
         cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
     body_cascade = cv2.CascadeClassifier(
@@ -96,27 +96,21 @@ def AccessRegistrationSystem():
         return  
 
     if Username != "":
-        System[Username]=[Password]
+        System[Username]=[Password,fullName.get(),number.get(),email.get()]
         messagebox.showinfo("Information","Registration Successful")
         app.switch_frame(PageOne)
     return
 
 def RecordedFeed():
     global videoplayer
-    videoplayer = TkinterVideo(app, scaled=True)
+    videoplayer = TkinterVideo(app, scaled=False)
     videoplayer.load(r"C:\Users\Khalid\ECCE-336-Project-1\Y2Mate.is - Twins climb out of cots-f_rQqVkEXOU-360p-1654154339715.mp4")
     videoplayer.pack(expand=True, fill="both")
     videoplayer.play() 
-    app.switch_frame(PageSeven)
+    app.switch_frame(PageSix)
     
 
-
-def LiveFeed():
-    print("Live Feed")
-    Camera()
-
 def CameraFeed():
-    print("Live Feed")
     videoplayer.destroy()
     app.switch_frame(PageFour)
 
@@ -128,7 +122,7 @@ class app(CTk):
         self._frame = None
         self.title("Baby Monitor Application")
         self.switch_frame(StartPage)
-        self.geometry("320x600")
+        self.geometry("300x450")
         
 
     def switch_frame(self, frame_class):
@@ -271,17 +265,6 @@ class PageFive(CTkFrame):
                 command=lambda: master.switch_frame(PageThree)).pack(pady=10) 
 
 class PageSix(CTkFrame):
-    def __init__(self, master):
-        
-        CTkFrame.__init__(self, master)
-        CTkLabel(self, text="Live Feed:").pack(side="top", fill="x", pady=10)
-        Camera()
-
-        
-        CTkButton(self, text="Return to Main Menu",
-                command=lambda: master.switch_frame(PageThree)).pack(pady=10)
-
-class PageSeven(CTkFrame):
     def __init__(self, master):
         CTkFrame.__init__(self, master)
         CTkLabel(self, text="Recorded Camera Feed:").pack(side="top", fill="x", padx=10)
